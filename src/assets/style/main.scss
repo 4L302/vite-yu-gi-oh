@@ -1,0 +1,11 @@
+@use './partials/variables.scss' as *; 
+
+@import 'bootstrap/scss/bootstrap';
+
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+
+body{
+    font-family: 'Anuphan', sans-serif;
+}
+
