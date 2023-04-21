@@ -6,6 +6,7 @@
     <main>
 
       <characterList/>
+      
     </main>
     
   </div>
@@ -13,6 +14,7 @@
 
 <script>
 import axios from 'axios';
+import { store } from './data/store';
 import headerComponent from './components/headerComponent.vue';
 import characterList from './components/characterCard.vue';
 import characterCard from './components/characterCard.vue';
@@ -28,13 +30,14 @@ export default {
 },
 data(){
   return{
-    
+    store
   }
 },
 methods: {
   getCharacters(){
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0').then((res) =>{
-      console.log(res.data)
+      console.log(res.data.name)
+      store.characterList = res.data.name;
     });
   }
 },
