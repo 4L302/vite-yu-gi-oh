@@ -9,6 +9,10 @@
 </style>
 
 <template>
-
-<template/>
+    <div>
+        <header>
+            <h1>Yu-Gi-Oh</h1>
+        </header>
+    </div>
+</template>
 

@@ -12,35 +12,34 @@
 </template>
 
 <script>
-import { store } from './data/store';
 import axios from 'axios';
 import headerComponent from './components/headerComponent.vue';
 import characterList from './components/characterCard.vue';
+import characterCard from './components/characterCard.vue';
 
 
 export default {
   name: 'App',
   components: {
     headerComponent,
-    characterList
+    characterList,
+    characterCard
     
 },
 data(){
   return{
-    store
+    
   }
 },
 methods: {
   getCharacters(){
-    const url = store.baseUrl + store.endpoint;
-    axios.get(url).then((res) => {
-      this.store.characterList = res.data.results;
+    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0').then((res) =>{
+      console.log(res.data)
     });
   }
 },
 mounted() {
-  store.endpoint = 'character';
-  this.getCharacter();
+  this.getCharacters();
 }
 }
 </script>
