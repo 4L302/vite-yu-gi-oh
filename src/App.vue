@@ -36,8 +36,8 @@ data(){
 methods: {
   getCharacters(){
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0').then((res) =>{
-      console.log(res.data.name)
-      store.characterList = res.data.name;
+      console.log(res.data.data)
+      store.characterList = res.data.data;
     });
   }
 },
