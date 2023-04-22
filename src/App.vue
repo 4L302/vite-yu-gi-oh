@@ -5,7 +5,7 @@
   
     <main>
 
-      <characterList/>
+      <div v-for="card in store.characterList">card: {{card.name}}</div>
       
     </main>
     
