@@ -2,13 +2,17 @@
   <div class="container">
 
     <headerComponent />
-  
-    <main>
 
-      <div v-for="card in store.characterList">card: {{card.name}}</div>
-      
+    <main>
+      <div class="row">
+        <div v-for="card in store.characterList" class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <img :src="card.card_image" :alt="card.name">
+           <div>{{ card.name }}</div>
+           <div>{{ card.race }}</div>
+        </div>
+      </div>
     </main>
-    
+
   </div>
 </template>
 
@@ -26,24 +30,24 @@ export default {
     headerComponent,
     characterList,
     characterCard
-    
-},
-data(){
-  return{
-    store
+
+  },
+  data() {
+    return {
+      store
+    }
+  },
+  methods: {
+    getCharacters() {
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0').then((res) => {
+        console.log(res.data.data)
+        store.characterList = res.data.data;
+      });
+    }
+  },
+  mounted() {
+    this.getCharacters();
   }
-},
-methods: {
-  getCharacters(){
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0').then((res) =>{
-      console.log(res.data.data)
-      store.characterList = res.data.data;
-    });
-  }
-},
-mounted() {
-  this.getCharacters();
-}
 }
 </script>
 
