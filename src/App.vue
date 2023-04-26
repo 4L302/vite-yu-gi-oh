@@ -5,7 +5,7 @@
 
     <main>
       <div class="row">
-        <div v-for="card in store.characterList" class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div v-for="card in store.characterList" class="col-12 col-sm-6 col-md-4 col-lg-3 text-center card">
           <img :src="card.card_image" :alt="card.name">
            <div>{{ card.name }}</div>
            <div>{{ card.race }}</div>
@@ -51,4 +51,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .card{
+    background-color: orange;
+  }
+</style>
